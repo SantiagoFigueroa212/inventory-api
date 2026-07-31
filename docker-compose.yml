@@ -1,0 +1,9 @@
+services:
+  backend:
+    build: .
+    container_name: inventory-api-dev
+    command: sleep infinity
+    volumes:
+      - ./backend:/app
+    stdin_open: true
+    tty: true
