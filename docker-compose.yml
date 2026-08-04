@@ -7,3 +7,14 @@ services:
       - ./backend:/app
     stdin_open: true
     tty: true
+  db:
+    image: postgres:17
+    container_name: inventory-db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
