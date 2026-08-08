@@ -1,6 +1,12 @@
 from django.urls import path
-from . import views
+from rest_framework.routers import DefaultRouter
+from .views import ProductViewSet, ReviewView
+
+router = DefaultRouter()
+router.register("products", ProductViewSet)
+
 
 urlpatterns = [
-    path("", views.home),
+    *router.urls,
+    path("reviews/", ReviewView.as_view()),
 ]

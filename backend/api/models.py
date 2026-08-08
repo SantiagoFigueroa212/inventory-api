@@ -8,3 +8,8 @@ class Product(models.Model):
     stock = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+class Review(models.Model):
+    review = models.CharField(max_length=500)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
